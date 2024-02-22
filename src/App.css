@@ -1,0 +1,11 @@
+:root {
+    --primary-color: #01497c;
+    --secondary-color: #2a6f97;
+    --ternary-color: #ffffff;
+    --dark-black: #000000;
+    --light-black: #565656;
+    --light-blue: #4285ea
+  }
+body {
+    background-color: #e2eafc
+}

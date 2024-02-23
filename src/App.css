@@ -1,11 +1,26 @@
-:root {
-    --primary-color: #01497c;
-    --secondary-color: #2a6f97;
-    --ternary-color: #ffffff;
-    --dark-black: #000000;
-    --light-black: #565656;
-    --light-blue: #4285ea
-  }
-body {
-    background-color: #e2eafc
+.todos {
+  margin-top: 20px;
+}
+.todo {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+}
+.todo-left {
+  display: flex;
+  gap: 12px;
+}
+.todo-detail-title {
+  font-size: 16px;
+  font-weight: 500;
+  color: var(--dark-black);
+}
+.todo-detail-desc {
+  color: var(--light-black);
+  font-size: 14px;
 }

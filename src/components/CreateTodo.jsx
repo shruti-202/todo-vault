@@ -36,7 +36,7 @@ const priorityOptions = [
   { label: "Low", value: "low" },
 ];
 
-export default function CreateTodo() {
+export default function CreateTodo({ fetchTodos }) {
   const [open, setOpen] = useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
@@ -59,7 +59,6 @@ export default function CreateTodo() {
     setDueDate(value.format("DD-MM-YYYY"));
   };
 
-  console.log("setDueDate", setDueDate);
   const handleSubmit = (e) => {
     e.preventDefault();
 
@@ -118,6 +117,7 @@ export default function CreateTodo() {
     )
       .then(() => {
         alerts("Todo created successfully", "success");
+        fetchTodos();
         handleClose();
       })
       .catch(() => {

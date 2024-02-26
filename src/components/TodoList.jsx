@@ -1,6 +1,7 @@
 import DeleteForeverIcon from "@mui/icons-material/DeleteForever";
 import { IconButton } from "@mui/material";
 import Checkbox from "@mui/material/Checkbox";
+import alerts from "../utils/Alerts";
 
 function TodoList({ todos, fetchTodos }) {
   const deleteTodo = (id) => {
@@ -11,6 +12,7 @@ function TodoList({ todos, fetchTodos }) {
       }
     ).then(() => {
       fetchTodos();
+      alerts("Todo deleted successfully", "success");
     });
   };
   return (

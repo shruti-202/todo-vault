@@ -4,8 +4,8 @@
   box-sizing: border-box;
 }
 :root {
-  --primary-color: #01497c;
-  --secondary-color: #2a6f97;
+  --primary-color: #8c07dd;
+  --secondary-color: #b333e9;
   --ternary-color: #ffffff;
   --dark-black: #000000;
   --light-black: #565656;
@@ -14,4 +14,5 @@
 
 body {
   font-family: "Poppins", sans-serif;
+  background-color: #f7ebfd;
 }

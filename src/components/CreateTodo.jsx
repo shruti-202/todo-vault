@@ -10,8 +10,8 @@ import Box from "@mui/material/Box";
 import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
 import { DatePicker } from "@mui/x-date-pickers/DatePicker";
-import alerts from "../components/constants/Alerts";
-import { titleValidator, descriptionValidator } from "./constants/Validators";
+import alerts from "../utils/Alerts";
+import { titleValidator, descriptionValidator } from "../constants/Validators";
 
 const style = {
   position: "absolute",

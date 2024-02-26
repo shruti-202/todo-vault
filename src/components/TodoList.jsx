@@ -1,9 +1,18 @@
-import Checkbox from "@mui/material/Checkbox";
-import Button from "@mui/material/Button";
 import DeleteForeverIcon from "@mui/icons-material/DeleteForever";
 import { IconButton } from "@mui/material";
+import Checkbox from "@mui/material/Checkbox";
 
-function TodoList({ todos }) {
+function TodoList({ todos, fetchTodos }) {
+  const deleteTodo = (id) => {
+    fetch(
+      `https://todo-d528e-default-rtdb.asia-southeast1.firebasedatabase.app/todo/${id}.json `,
+      {
+        method: "DELETE",
+      }
+    ).then(() => {
+      fetchTodos();
+    });
+  };
   return (
     <div className="todos">
       {todos.length > 0 ? (
@@ -26,7 +35,7 @@ function TodoList({ todos }) {
                 </div>
                 <div className="todo-right">
                   <div className="todo-delete">
-                    <IconButton>
+                    <IconButton onClick={() => deleteTodo(todo.id)}>
                       <DeleteForeverIcon />
                     </IconButton>
                   </div>

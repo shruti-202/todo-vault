@@ -12,9 +12,25 @@ function TodoList({ todos, fetchTodos }) {
       }
     ).then(() => {
       fetchTodos();
-      alerts("Todo deleted successfully", "success");
+      alerts("Todo Deleted Successfully", 'info');
     });
   };
+
+  const updateTodo = (id,currentState) => {
+    fetch(`https://todo-d528e-default-rtdb.asia-southeast1.firebasedatabase.app/todo/${id}.json `,
+    {
+      method: "PATCH",
+      body: JSON.stringify({
+        isCompleted: !currentState
+      }),
+      headers: {
+        'Content-Type':'application/json'
+      }
+    }).then (() => {
+      fetchTodos();
+      alerts("Todo Updated Successfully",'info')
+    })
+  }
   return (
     <div className="todos">
       {todos.length > 0 ? (
@@ -28,6 +44,7 @@ function TodoList({ todos, fetchTodos }) {
                       checked={todo.isCompleted}
                       color="primary"
                       inputProps={{ "aria-label": "secondary checkbox" }}
+                      onClick={() => updateTodo(todo.id, todo.isCompleted)}
                     />
                   </div>
                   <div className="todo-detail">

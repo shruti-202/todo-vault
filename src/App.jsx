@@ -3,6 +3,7 @@ import CreateTodo from "./components/CreateTodo";
 import React, { useState, useEffect } from "react";
 import { Container } from "@mui/material";
 import TodoList from "./components/TodoList";
+import Header from "./components/Header";
 
 function App() {
   const [todos, setTodos] = useState([]);
@@ -28,6 +29,7 @@ function App() {
 
   return (
     <Container maxWidth="md">
+      <Header/>
       <CreateTodo fetchTodos={fetchTodos} />
       <TodoList todos={todos} fetchTodos={fetchTodos} />
     </Container>

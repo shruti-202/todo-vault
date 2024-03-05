@@ -1,6 +1,9 @@
 .todos {
   margin-top: 20px;
 }
+.todo-container {
+  margin-top: 100px;
+}
 .todo {
   display: flex;
   justify-content: space-between;

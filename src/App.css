@@ -24,3 +24,13 @@
   color: var(--light-black);
   font-size: 14px;
 }
+.priority-high {
+  border-left: 5px solid red;
+}
+.priority-medium {
+  border-left: 5px solid orange
+}
+.priority-low {
+  border-left: 5px solid gray
+
+}

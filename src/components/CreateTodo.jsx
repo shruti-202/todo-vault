@@ -89,7 +89,7 @@ export default function CreateTodo({ fetchTodos }) {
       }
 
       if (!descriptionValidator(description)) {
-        alerts("Invalid Description Format: Start with Uppercase", "error");
+        alerts("Invalid Description Format: Start with an uppercase letter and can contain only letters and digits", "error");
         return;
       }
     }

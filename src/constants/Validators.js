@@ -4,6 +4,6 @@ export const titleValidator = (title) => {
 };
 
 export const descriptionValidator = (description) => {
-  const descriptionRegex = /^[A-Z][a-z]*(?: [A-Za-z0-9][a-z0-9]*)*$/;
+  const descriptionRegex = /^[A-Z][A-Za-z0-9]*(?: [A-Za-z0-9][a-z0-9]*)*$/;
   return descriptionRegex.test(description);
 };

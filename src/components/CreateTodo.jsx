@@ -79,7 +79,7 @@ export default function CreateTodo({ fetchTodos }) {
     if (!titleValidator(title)) {
       setTitleError(true);
       alerts(
-        "Invalid Title Format: First word must start with an uppercase letter followed by either all uppercase/ lowercase letters or Title contains gibberish",
+        "Invalid Title Format: First word must start with an uppercase letter followed by either all uppercase/ lowercase letters or else Title contains gibberish/special characters",
         "error"
       );
       return;
@@ -97,7 +97,7 @@ export default function CreateTodo({ fetchTodos }) {
 
       if (!descriptionValidator(description)) {
         alerts(
-          "Invalid Description Format: First word must start with an uppercase letter followed by either all uppercase/ lowercase letters or Description contains gibberish",
+          "Invalid Description Format: First word must start with an uppercase letter followed by either all uppercase/ lowercase letters or else Description contains gibberish/ special characters",
           "error"
         );
         return;

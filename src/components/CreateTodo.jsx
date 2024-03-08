@@ -18,7 +18,7 @@ const style = {
   top: "50%",
   left: "50%",
   transform: "translate(-50%, -50%)",
-  width:"90%",
+  width: "90%",
   maxWidth: 400,
   bgcolor: "background.paper",
   borderRadius: 2,
@@ -46,9 +46,11 @@ export default function CreateTodo({ fetchTodos }) {
   const [description, setDescription] = useState("");
   const [priority, setPriority] = useState("");
   const [dueDate, setDueDate] = useState("");
+  const [titleError, setTitleError] = useState(false);
 
   const handleInputTitle = (e) => {
     setTitle(e.target.value);
+    setTitleError(false);
   };
   const handleInputDescription = (e) => {
     setDescription(e.target.value);
@@ -64,33 +66,40 @@ export default function CreateTodo({ fetchTodos }) {
     e.preventDefault();
 
     if (!title) {
+      setTitleError(true);
       alerts("Please enter the Title", "error");
       return;
     }
-    if (title?.length < 3 || title?.length >= 100) {
-      alerts("Title should be more than 2 less than 100 characters", "error");
+    if (title?.length < 2 || title?.length >= 15) {
+      setTitleError(true);
+      alerts("Title should be more than 1 less than 15 characters", "error");
       return;
     }
 
     if (!titleValidator(title)) {
+      setTitleError(true);
       alerts(
-        "Invalid Title Format: Start with uppercase followed by lowercase & contains only alphabetical characters",
+        "Invalid Title Format: First word must start with an uppercase letter followed by either all uppercase/ lowercase letters or Title contains gibberish",
         "error"
       );
       return;
     }
+    setTitleError(false);
 
     if (description.trim()) {
-      if (description?.length < 4 || description?.length >= 500) {
+      if (description?.length < 4 || description?.length >= 60) {
         alerts(
-          "Description should be more than 4 & less than 500 characters",
+          "Description should be more than 4 & less than 20 characters",
           "error"
         );
         return;
       }
 
       if (!descriptionValidator(description)) {
-        alerts("Invalid Description Format: Start with an uppercase letter and can contain only letters and digits", "error");
+        alerts(
+          "Invalid Description Format: First word must start with an uppercase letter followed by either all uppercase/ lowercase letters or Description contains gibberish",
+          "error"
+        );
         return;
       }
     }

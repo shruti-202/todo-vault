@@ -12,6 +12,6 @@ export const descriptionValidator = (description) => {
   if (gibberishRegex.test(description)) {
     return false; 
   }
-  const descriptionRegex = /^(?:[A-Z][a-z]*|[A-Z]+)(?:\s(?:[A-Z][a-z]*|[A-Z]+|[a-z]+))*$/
+  const descriptionRegex = /^(?:[A-Z][a-z]*|[A-Z]+)(?:\s(?:[A-Z][a-z]*|[A-Z]+|[a-z]+|\d+))*$/
   return /\b[A-Z][a-z]*\b/.test(description) && descriptionRegex.test(description);
 };

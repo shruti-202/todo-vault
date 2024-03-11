@@ -49,11 +49,11 @@ export default function CreateTodo({ fetchTodos }) {
   const [titleError, setTitleError] = useState(false);
 
   const handleInputTitle = (e) => {
-    setTitle(e.target.value);
+    setTitle(e.target.value.trim());
     setTitleError(false);
   };
   const handleInputDescription = (e) => {
-    setDescription(e.target.value);
+    setDescription(e.target.value.trim());
   };
   const handleInputPriority = (e, value) => {
     setPriority(value.value);
@@ -64,22 +64,22 @@ export default function CreateTodo({ fetchTodos }) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-
-    if (!title) {
+    const trimmedTitle  = title.trim();
+    if (!trimmedTitle ) {
       setTitleError(true);
       alerts("Please enter the Title", "error");
       return;
     }
-    if (title?.length < 2 || title?.length >= 15) {
+    if (trimmedTitle ?.length < 2 || trimmedTitle ?.length >= 15) {
       setTitleError(true);
       alerts("Title should be more than 1 less than 15 characters", "error");
       return;
     }
 
-    if (!titleValidator(title)) {
+    if (!titleValidator(trimmedTitle)) {
       setTitleError(true);
       alerts(
-        "Invalid Title Format: First word must start with an uppercase letter followed by either all uppercase/ lowercase letters or else Title contains gibberish/special characters",
+        "Invalid Title Format: Start with an uppercase letter followed by either all uppercase/ lowercase letters & Title cannot contain gibberish/special characters",
         "error"
       );
       return;
@@ -97,7 +97,7 @@ export default function CreateTodo({ fetchTodos }) {
 
       if (!descriptionValidator(description)) {
         alerts(
-          "Invalid Description Format: First word must start with an uppercase letter followed by either all uppercase/ lowercase letters or else Description contains gibberish/ special characters",
+          "Invalid Description Format: Start with an uppercase letter followed by either all uppercase/ lowercase letters & Description cannot contain gibberish/ special characters",
           "error"
         );
         return;

@@ -65,6 +65,7 @@ export default function CreateTodo({ fetchTodos }) {
   const handleSubmit = (e) => {
     e.preventDefault();
     const trimmedTitle  = title.trim();
+    const trimmedDescription = description.trim();
     if (!trimmedTitle ) {
       setTitleError(true);
       alerts("Please enter the Title", "error");
@@ -86,8 +87,8 @@ export default function CreateTodo({ fetchTodos }) {
     }
     setTitleError(false);
 
-    if (description.trim()) {
-      if (description?.length < 4 || description?.length >= 60) {
+    if (trimmedDescription ) {
+      if (trimmedDescription ?.length < 4 || trimmedDescription ?.length >= 60) {
         alerts(
           "Description should be more than 4 & less than 20 characters",
           "error"
@@ -95,7 +96,7 @@ export default function CreateTodo({ fetchTodos }) {
         return;
       }
 
-      if (!descriptionValidator(description)) {
+      if (!descriptionValidator(trimmedDescription )) {
         alerts(
           "Invalid Description Format: Start with an uppercase letter followed by either all uppercase/ lowercase letters & Description cannot contain gibberish/ special characters",
           "error"
